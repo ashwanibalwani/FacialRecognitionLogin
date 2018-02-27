@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>FacialRecognitionLogin</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.minnick.facialrecognitionlogin</string>
+	<string>com.hieu.facialrecognitionlogin</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>UIAppFonts</key>
