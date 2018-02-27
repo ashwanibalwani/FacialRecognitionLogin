@@ -28,7 +28,7 @@ namespace FacialRecognitionLogin
             BackgroundColor = Color.FromHex("#3498db");
             Padding = GetPagePadding();
 
-            _logo = new Image { Source = "xamarin_logo" };
+            _logo = new Image { Source = "microsoft_logo" };
 
             _logoSlogan = new StyledLabel
             {

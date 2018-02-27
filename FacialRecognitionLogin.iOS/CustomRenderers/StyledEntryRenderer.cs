@@ -42,8 +42,8 @@ namespace FacialRecognitionLogin.iOS
                 var formsEntry = e.NewElement as StyledEntry;
                 _nativeTextField = Control as UITextField;
                 _nativeTextField.Font = UIFont.FromName("AppleSDGothicNeo-Light", 18);
-                _nativeTextField.TextColor = UIColor.White;
-
+                // _nativeTextField.TextColor = UIColor.White;
+                _nativeTextField.AutocapitalizationType = UITextAutocapitalizationType.None;
                 if (!string.IsNullOrEmpty(formsEntry.Placeholder))
                     _nativeTextField.AttributedPlaceholder = new NSAttributedString(formsEntry.Placeholder, UIFont.FromName("AppleSDGothicNeo-Light", 18), UIColor.White);
 

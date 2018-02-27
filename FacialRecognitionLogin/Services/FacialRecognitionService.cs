@@ -15,7 +15,11 @@ namespace FacialRecognitionLogin
         #region Constant Fields
         const string _personGroupId = "persongroupid";
         const string _personGroupName = "Facial Recognition Login Group";
-        static readonly Lazy<FaceServiceClient> _faceServiceClientHolder = new Lazy<FaceServiceClient>(() => new FaceServiceClient(AzureConstants.FacialRecognitionAPIKey));
+        static readonly Lazy<FaceServiceClient> _faceServiceClientHolder =
+            new Lazy<FaceServiceClient>(() => new FaceServiceClient(AzureConstants.FacialRecognitionAPIKey, AzureConstants.FacialRecognitionAPIRoot));
+
+        //https://github.com/Microsoft/Cognitive-Face-Windows/blob/master/ClientLibrary/FaceServiceClient.cs
+
         #endregion
 
         #region Fields
