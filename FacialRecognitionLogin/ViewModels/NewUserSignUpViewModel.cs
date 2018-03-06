@@ -89,12 +89,12 @@ namespace FacialRecognitionLogin
 
         async Task ExecuteSaveButtonCommand(string username, string password)
         {
-            if(false) //TODO: remove this line to include FaceFA in SignUp
-            if (FontAwesomeLabelText.Equals(_fontAwesomeEmptyBox.ToString()))
-            {
-                OnSaveFailed("Photo Required for Facial Recognition");
-                return;
-            }
+            if(AzureConstants.EnableFacial) //TODO: remove this line to include FaceFA in SignUp
+                if (FontAwesomeLabelText.Equals(_fontAwesomeEmptyBox.ToString()))
+                {
+                    OnSaveFailed("Photo Required for Facial Recognition");
+                    return;
+                }
 
             var isUserNamePasswordValid = await DependencyService.Get<ILogin>().SetPasswordForUsername(username, password);
             if (isUserNamePasswordValid)
@@ -107,11 +107,12 @@ namespace FacialRecognitionLogin
         {
             await WaitForNewUserSignUpPageToDisappear();
 
+
             //TODO uncomment here
-            /*
+            if (AzureConstants.EnableFacial)
                 if (!_facialRecognitionUserGUID.Equals(default(Guid)))
                     await FacialRecognitionService.RemoveExistingFace(_facialRecognitionUserGUID);
-            */
+            
         }
 
         async Task WaitForNewUserSignUpPageToDisappear() => await Task.Delay(1000);

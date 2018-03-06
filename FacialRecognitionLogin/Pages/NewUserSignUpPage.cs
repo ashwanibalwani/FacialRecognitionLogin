@@ -130,11 +130,19 @@ namespace FacialRecognitionLogin
                     },
 
                     _passwordEntry,
+
                     //TODO: uncomment the  to include the TakePhoto button on SignUp
                     //_takePhotoButton,
                     //facialRecognitionStackLayout,
                 }
             };
+
+            if(AzureConstants.EnableFacial){
+                stackLayout.Children.Add(_takePhotoButton);
+                stackLayout.Children.Add(facialRecognitionStackLayout);
+            }
+
+
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:

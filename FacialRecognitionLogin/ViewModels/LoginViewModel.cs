@@ -56,25 +56,29 @@ namespace FacialRecognitionLogin
             }
 
             //TODO: remove the below two lines & remove /* */ to add FaceFA to Login
-            OnLoginApproved();
-            return; 
-
-            /*
-            var photoStream = await PhotoService.GetPhotoStreamFromCamera();
-
-            if(photoStream == null)
+            if (!AzureConstants.EnableFacial)
             {
-                OnLoginFailed("Facial Recognition Required", false);
+                OnLoginApproved();
                 return;
             }
+            else{
 
-            var isFaceRecognized = await FacialRecognitionService.IsFaceIdentified(UsernameEntryText, photoStream);
+                var photoStream = await PhotoService.GetPhotoStreamFromCamera();
 
-            if (isFaceRecognized)
-                OnLoginApproved();
-            else
-                OnLoginFailed("Face not recognized", true);
-            */
+                if(photoStream == null)
+                {
+                    OnLoginFailed("Facial Recognition Required", false);
+                    return;
+                }
+
+                var isFaceRecognized = await FacialRecognitionService.IsFaceIdentified(UsernameEntryText, photoStream);
+
+                if (isFaceRecognized)
+                    OnLoginApproved();
+                else
+                    OnLoginFailed("Face not recognized", true);
+                
+            }
         }
 
         void OnLoginFailed(string errorMessage, bool shouldDisplaySignUpPrompt) =>
