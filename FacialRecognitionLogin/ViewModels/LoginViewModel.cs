@@ -55,6 +55,11 @@ namespace FacialRecognitionLogin
                 return;
             }
 
+            //TODO: remove the below two lines & remove /* */ to add FaceFA to Login
+            OnLoginApproved();
+            return; 
+
+            /*
             var photoStream = await PhotoService.GetPhotoStreamFromCamera();
 
             if(photoStream == null)
@@ -69,6 +74,7 @@ namespace FacialRecognitionLogin
                 OnLoginApproved();
             else
                 OnLoginFailed("Face not recognized", true);
+            */
         }
 
         void OnLoginFailed(string errorMessage, bool shouldDisplaySignUpPrompt) =>

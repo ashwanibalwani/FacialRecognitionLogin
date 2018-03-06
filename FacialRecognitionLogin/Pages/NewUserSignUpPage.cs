@@ -60,6 +60,7 @@ namespace FacialRecognitionLogin
             _cancelButton.SetBinding(IsEnabledProperty, nameof(ViewModel.IsInternetConnectionInactive));
             _cancelButton.SetBinding(Button.CommandProperty, nameof(ViewModel.CancelButtonCommand));
 
+
             _takePhotoButton = new StyledButton(Borders.Thin, 1)
             {
                 Text = "Take Photo",
@@ -68,6 +69,7 @@ namespace FacialRecognitionLogin
             };
             _takePhotoButton.SetBinding(IsEnabledProperty, nameof(ViewModel.IsInternetConnectionInactive));
             _takePhotoButton.SetBinding(Button.CommandProperty, nameof(ViewModel.TakePhotoButtonCommand));
+
 
             var isFacialRecognitionCompletedDescriptionLabel = new StyledLabel { Text = "Facial Recognition Completed" };
 
@@ -128,8 +130,9 @@ namespace FacialRecognitionLogin
                     },
 
                     _passwordEntry,
-                    _takePhotoButton,
-                    facialRecognitionStackLayout,
+                    //TODO: uncomment the  to include the TakePhoto button on SignUp
+                    //_takePhotoButton,
+                    //facialRecognitionStackLayout,
                 }
             };
             switch (Device.RuntimePlatform)

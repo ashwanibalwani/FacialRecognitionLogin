@@ -89,6 +89,7 @@ namespace FacialRecognitionLogin
 
         async Task ExecuteSaveButtonCommand(string username, string password)
         {
+            if(false) //TODO: remove this line to include FaceFA in SignUp
             if (FontAwesomeLabelText.Equals(_fontAwesomeEmptyBox.ToString()))
             {
                 OnSaveFailed("Photo Required for Facial Recognition");
@@ -106,8 +107,11 @@ namespace FacialRecognitionLogin
         {
             await WaitForNewUserSignUpPageToDisappear();
 
-            if (!_facialRecognitionUserGUID.Equals(default(Guid)))
-                await FacialRecognitionService.RemoveExistingFace(_facialRecognitionUserGUID);
+            //TODO uncomment here
+            /*
+                if (!_facialRecognitionUserGUID.Equals(default(Guid)))
+                    await FacialRecognitionService.RemoveExistingFace(_facialRecognitionUserGUID);
+            */
         }
 
         async Task WaitForNewUserSignUpPageToDisappear() => await Task.Delay(1000);

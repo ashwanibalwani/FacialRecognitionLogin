@@ -19,7 +19,7 @@ namespace FacialRecognitionLogin
 			FontFamily = StyleHelpers.GetFontFamily();
 
 			switch (border)
-			{
+			{  
 				case Borders.None:
 					break;
 				case Borders.Thin:
